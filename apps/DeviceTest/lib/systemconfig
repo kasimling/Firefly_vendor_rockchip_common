@@ -1,0 +1,21 @@
+#!/system/bin/sh
+#copy /system/bin/
+
+CLEAR_TEST="clear_test"
+
+
+function clear_test()
+{
+  mount -o rw,remount /system
+  rm -rf /system/media/devicetest
+}
+
+case "$1" in
+       "$CLEAR_TEST")
+               echo "system will get root..."
+               clear_test
+               ;;
+       *) 
+               echo "unexpected argument."
+       ;;
+esac
